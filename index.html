@@ -6,16 +6,23 @@
       <meta charset="utf-8">
 
       <title>Library Maze</title>
-	  <script src="program.js"></script>
-	  <script src="graphik_labyrinth.js"></script>
+	  
+	  <script src="https://cdn.rawgit.com/dynobo/snapjs/master/snap.js"></script>
+	  <script src="graphik_labyrinth.js"></script> 
 	  <link rel="stylesheet" type="text/css" href="style.css">
 
 	</head>
 
 	<body>
-	  <CANVAS id="canvas" 
-        width = "300px" 
-        height ="300px"></CANVAS> 
-	</body>
-</html>
 	
+	<h1 id="mytitle">Library Maze</h1>
+	<div id="something">Drück auf den Knopf, um die Funktion auszulösen.</div>
+	<button type="button" onclick="myFunction()">Klick mich!</button>
+	<button type="button" onclick="Spiel()">Starte Spiel!</button>
+	<p>
+	<canvas id="stage" width = "300px" height ="300px"></canvas>
+	<div id="variables"></div>
+	</p>
+	</body>
+</html>	
+

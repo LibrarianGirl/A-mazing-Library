@@ -1,4 +1,17 @@
- var canvas, 
+function myFunction() {
+
+goToXY(20,20);
+
+for (var i = 1; i <= 200; i++) {
+  move(i);
+  turnRight(121);
+}
+
+}
+
+
+function Spiel() {
+ 	var canvas, 
         context,
         bounce = -1;
         
@@ -15,12 +28,12 @@ var size = w/delimiter;
                       new Array(1,0,0,0,1,1,1,0,0,0),
                       new Array(1,1,1,0,0,0,0,0,1,1),
                       new Array(1,0,0,0,1,1,1,0,1,1),
-                      new Array(1,0,1,2,1,1,0,1,1,1),
-                      new Array(1,0,0,1,1,1,0,0,0,1),
+                      new Array(1,0,1,1,1,1,0,1,1,1),
+                      new Array(1,0,0,1,2,1,0,0,0,1),
                       new Array(1,1,0,0,0,1,0,1,0,1),
                       new Array(1,1,1,1,0,1,0,1,0,1),
                       new Array(1,0,0,0,0,0,0,1,0,1),
-                      new Array(2,0,1,1,1,1,1,1,1,1)
+                      new Array(1,0,1,1,1,1,1,1,1,1)
                       ); 
 
 
@@ -46,3 +59,4 @@ function rect(x,y,w,h,color){
     context.fillRect (x,y,w,h);  
 };
 
+}
