@@ -1,41 +1,34 @@
-function myFunction() {
-
-goToXY(20,20);
-
-for (var i = 1; i <= 200; i++) {
-  move(i);
-  turnRight(121);
-}
-
-}
-
-
 function Spiel() {
  	var canvas, 
         context,
         bounce = -1;
         
-    canvas = $("#canvas")[0]; //Canvas 0
+    canvas = document.getElementById("stage")
     context = canvas.getContext("2d"); //ermöglicht das Zeichnen von 4ecken
     var w = canvas.width;
     var h = canvas.height; 
 //d:delimiter
-var delimiter = 10;
+var delimiter = 15;
 var size = w/delimiter;
 
  var Maze = new Array(
-                      new Array(1,1,1,1,1,1,1,1,1,1),
-                      new Array(1,0,0,0,1,1,1,0,0,0),
-                      new Array(1,1,1,0,0,0,0,0,1,1),
-                      new Array(1,0,0,0,1,1,1,0,1,1),
-                      new Array(1,0,1,1,1,1,0,1,1,1),
-                      new Array(1,0,0,1,2,1,0,0,0,1),
-                      new Array(1,1,0,0,0,1,0,1,0,1),
-                      new Array(1,1,1,1,0,1,0,1,0,1),
-                      new Array(1,0,0,0,0,0,0,1,0,1),
-                      new Array(1,0,1,1,1,1,1,1,1,1)
+							//  1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+                      new Array(0,0,1,1,1,1,1,1,1,1,1,1,1,1,1),//1
+                      new Array(0,0,1,0,0,0,0,0,0,0,0,1,1,1,1),//2
+                      new Array(1,0,1,0,1,1,1,0,0,0,0,0,0,1,1),//3
+                      new Array(1,0,1,0,0,0,1,0,0,1,1,1,0,1,1),//4
+                      new Array(1,0,1,1,1,0,1,1,1,1,1,1,0,0,1),//5
+					  new Array(1,0,1,1,0,0,1,1,0,1,1,1,0,1,1),//6
+                      new Array(1,0,1,1,0,1,1,0,0,0,0,0,0,0,0),//7
+                      new Array(1,0,0,0,0,0,0,1,0,1,1,1,1,1,0),//8
+                      new Array(1,1,1,1,1,0,1,1,0,0,0,0,0,1,0),//9
+                      new Array(0,0,0,0,0,0,1,1,0,1,1,1,0,1,0),//A
+                      new Array(0,0,1,1,1,0,0,1,0,1,0,0,0,1,0),//B
+					  new Array(0,0,0,0,0,0,1,0,0,1,0,1,1,1,1),//C
+					  new Array(1,1,1,1,1,1,1,1,0,1,0,0,0,0,1),//D
+					  new Array(1,1,1,1,1,1,1,1,0,0,0,0,0,1,1),//E
+					  new Array(1,1,1,1,1,1,1,1,1,1,1,1,0,0,2)//F
                       ); 
-
 
 function BlackOrWhite(something){
     if(something == 1){return "black";}
@@ -43,8 +36,8 @@ function BlackOrWhite(something){
     else{return "white";};
 };
 
-for(var i = 0;i<10;i++){
-        for(var j = 0;j<10;j++){       
+for(var i = 0;i<15;i++){
+        for(var j = 0;j<15;j++){       
             rect(size*j,size*i,size,size,BlackOrWhite((Maze[i][j])));
 
     };
@@ -60,3 +53,5 @@ function rect(x,y,w,h,color){
 };
 
 }
+
+
