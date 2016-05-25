@@ -8,15 +8,15 @@
       <title>Library Maze</title>
 	  
 	  <script src="https://cdn.rawgit.com/dynobo/snapjs/master/snap.js"></script>
+	  <script src="https://code.jquery.com/jquery-latest.js"></script>  
 	  <script src="graphik_labyrinth.js"></script> 
 	  <link rel="stylesheet" type="text/css" href="style.css">
 
 	</head>
 
-	<body>
+	<body onload="Game()">
 	<h1 id="mytitle">Library Maze</h1>
-	<div id="something">Drück auf den Knopf, um das Spiel zu starten</div>	
-	<button type="button" onclick="Spiel()">Starte Spiel!</button>
+	<div id="something">Drück auf den Knopf, um das Spiel zu starten</div>	 
 	<p>
 	<canvas id="stage" width = "450px" height ="450px"></canvas>
 	<div id="variables"></div>	
