@@ -25,27 +25,30 @@ function Game() {
 						  new Array(1,1,1,1,1,1,1,1,1,1,1,1,0,0,2)//F
 						  ); 
 	
-	var MyMaze2 = new Array( 											//Labyrinth Level 2
+						  
+		var MyMaze2 = new Array( 											//Labyrinth Level 2
 								//  1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
-						  new Array(1,1,0,0,0,0,0,0,0,0,0,0,0,0,0),//1
-						  new Array(1,1,0,1,1,1,1,1,1,1,1,0,0,0,0),//2
-						  new Array(0,1,0,1,0,0,0,1,1,1,1,1,1,0,0),//3
-						  new Array(0,1,0,1,1,1,0,1,1,0,0,0,1,0,0),//4
-						  new Array(0,1,0,0,0,1,0,0,0,0,0,0,1,1,0),//5
-						  new Array(0,1,0,0,1,1,0,0,1,0,0,0,1,0,0),//6
-						  new Array(0,1,0,0,1,0,0,1,1,1,1,1,1,1,1),//7
-						  new Array(0,1,1,1,1,1,1,0,1,0,0,0,0,0,1),//8
-						  new Array(0,0,0,0,0,1,0,0,1,1,1,1,1,0,1),//9
-						  new Array(1,1,1,1,1,1,0,0,1,0,0,0,1,0,1),//A
-						  new Array(1,1,0,0,0,1,1,0,1,0,1,1,1,0,1),//B
-						  new Array(1,1,1,1,1,1,0,1,1,0,1,0,0,0,0),//C
-						  new Array(0,0,0,0,0,0,0,0,1,0,1,1,1,1,0),//D
-						  new Array(0,0,0,0,0,0,0,0,1,1,1,1,1,0,0),//E
-						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,1,1,2)//F
+						  new Array(0,0,0,0,0,0,0,0,1,1,1,1,1,1,1),//1
+						  new Array(1,0,1,0,1,1,1,0,0,0,0,0,0,0,0),//2
+						  new Array(1,0,1,0,0,0,0,0,1,1,1,1,1,1,1),//3
+						  new Array(1,0,1,1,1,1,1,0,0,0,0,0,0,0,1),//4
+						  new Array(1,0,1,1,0,0,0,0,1,0,1,1,0,1,1),//5
+						  new Array(1,0,1,0,0,1,0,1,1,0,1,0,0,0,1),//6
+						  new Array(1,0,0,0,1,1,0,1,0,0,1,1,0,1,1),//7
+						  new Array(1,1,1,1,1,0,0,1,0,1,1,0,0,1,1),//8
+						  new Array(1,1,0,0,0,0,1,1,0,1,0,0,1,1,1),//9
+						  new Array(1,1,0,1,1,0,1,1,0,0,0,1,1,1,1),//A
+						  new Array(1,1,0,0,0,0,0,0,1,1,1,1,1,1,1),//B
+						  new Array(1,1,0,1,1,0,1,0,0,0,0,0,1,1,1),//C
+						  new Array(0,0,0,1,0,0,1,1,0,1,1,0,0,1,1),//D
+						  new Array(1,1,1,1,0,1,1,0,0,1,1,1,0,0,0),//E
+						  new Array(1,1,1,1,0,0,0,0,1,1,1,1,1,1,2)//F
 						  ); 
+						  
 	//MyMaze... wird in Levels geschrieben
 	Levels.push(MyMaze);
 	Levels.push(MyMaze2);
+//	Levels.push(MyMaze3);
 console.log(Levels);
 	
 //Definiert den Canvas
@@ -67,10 +70,18 @@ console.log(Levels);
 			y: 0
 		};
 		
+//setzt den Bücherwagen auf Position
+		var PosWagen = {
+			x: 3,
+			y: 11
+		};
+		
 // Eigentlicher Spielablauf
 	Maze();
 	Player();
+	Bücherwagen();
 	move();
+	moveWagen();
 	
 
 	//+++++++++++++++++++++++++++++++++++++++++
@@ -108,21 +119,31 @@ console.log(Levels);
 		context.fill();	
 	};
 	
+//Zeichnet den Bücherwagen
+		function Bücherwagen() {
+			function rect(x,y,w,h,color){
+				context.fillStyle = color;  
+				context.fillRect (x,y,w,h);  
+				};
+			rect(PosWagen.x*size,PosWagen.y*size,size,size,"brown");
+		};
+	
 // Figur bewegen
 	function move(e){
 		
 		$(document).keyup(function(e){
-			if((e.which == 38) && canMove(player.x, player.y-1))//Up arrow
+			if((e.which == 38) && canMove(player.x, player.y-1))//Hoch
 				player.y--;
-			else if((e.which == 40) && canMove(player.x, player.y+1)) // down arrow
+			else if((e.which == 40) && canMove(player.x, player.y+1)) //Runter
 				player.y++;
-			else if((e.which == 37) && canMove(player.x-1, player.y))
+			else if((e.which == 37) && canMove(player.x-1, player.y)) //Links
 				player.x--;
-			else if((e.which == 39) && canMove(player.x+1, player.y))
+			else if((e.which == 39) && canMove(player.x+1, player.y)) //Rechts
 				player.x++;
 			
 			Maze();
 			Player();
+			Bücherwagen();
 			e.preventDefault();
 		});
 	};
@@ -134,10 +155,30 @@ console.log(Levels);
 		else if (x>=delimiter){return false;}
 		else if (y>=delimiter){return false;}
 		else if (currentMaze[y][x] ==1){return false;}
-		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++;}
+		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;}
 		else {return true;}	
 	};	
 
+//Bücherwagen bewegen Entwurf
+
+    function moveWagen(e){
+		$(document).keyup(function(e){
+				if((e.which == 38) && canMove(player.x, player.y-1) && )//Hoch drücken -> nach links bewegen
+					PosWagen.x--;
+				else if((e.which == 40) && canMove(player.x, player.y+1)) //Runter drücken -> nach links bewegen
+					PosWagen.x--;
+				else if((e.which == 37) && canMove(player.x-1, player.y)) //Links drücken -> nach rechts bewegen
+					PosWagen.x++;
+				else if((e.which == 39) && canMove(player.x+1, player.y)) //Rechts drücken -> nach rechts bewegen
+					PosWagen.x++;	
+		});		
+	};	
+	
+	
+	for a = 0 
+	
+
+	
 };
 
 
