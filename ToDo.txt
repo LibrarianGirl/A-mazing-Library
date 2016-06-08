@@ -1,0 +1,20 @@
+To-DO:
+
+- Graphik 
+- Nachricht: Alle Level geschaft
+- Bewegung des Wagens überarbeiten
+
+
+Weitere Ideen:
+- weitere Level: Knopf
+
+
+
+Erledigt:
+
+- Bücherwagen nur im 2. Level laden 
+- Bücherwagen bewegen
+- Bücherwagen erkenn und nicht rauf laufen
+- Bücherwagen variable im 2. laden
+
+
