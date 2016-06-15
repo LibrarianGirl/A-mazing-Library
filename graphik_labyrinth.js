@@ -38,7 +38,7 @@ function Game() {
 						  new Array(1,1,1,1,1,0,0,1,0,1,1,0,0,1,1),//8
 						  new Array(1,1,0,0,0,0,1,1,0,1,0,0,1,1,1),//9
 						  new Array(1,1,0,1,1,0,1,1,0,0,0,1,1,1,1),//A
-						  new Array(1,1,0,3,0,0,0,3,1,1,1,1,1,1,1),//B
+						  new Array(1,1,0,0,0,0,0,0,1,1,1,1,1,1,1),//B
 						  new Array(1,1,0,1,1,0,1,0,0,0,0,0,1,1,1),//C
 						  new Array(0,0,0,1,0,0,1,1,0,1,1,0,0,1,1),//D
 						  new Array(1,1,1,1,0,1,1,0,0,1,1,1,0,0,0),//E
@@ -131,22 +131,27 @@ function Game() {
 	function Maze() { 
 	currentMaze = Levels [currentLevel];
 		function BlackOrWhite(something){
-			if(something == 1){return "black";}
-			if(something == 2){return "red";}
-			else{return "white";};
+			//if(something == 2){return "red";}
+			 if (something == 0){return "white";};
 		};
 
 		for(var i = 0;i<15;i++){
 			for(var j = 0;j<15;j++){       
+				if (currentMaze[i][j] == 1)	{
+					context.drawImage(document.getElementById('imageWand'),size*j,size*i,size,size)	;}
+				else if (currentMaze[i][j] == 2)	{
+					context.drawImage(document.getElementById('imageTor'),size*j,size*i,size,size)	;}	 
+				else {
 				rect(size*j,size*i,size,size,BlackOrWhite((currentMaze[i][j])));
-
+				};
 			};
 		};
-		function rect(x,y,w,h,color){
-		context.fillStyle = color;  
-		context.fillRect (x,y,w,h);  
-		};
 		
+	function rect(x,y,w,h,color){
+		context.fillStyle = color;  
+		context.fillRect (x,y,w,h); 
+		
+		};			
 	
 		//Lädt  den Bücherwagen im 2. Level
 		if (currentLevel == 1) {Bücherwagen()};
@@ -173,8 +178,10 @@ function Game() {
 //Zeichnet den Bücherwagen
 		function Bücherwagen() {
 			function rect(x,y,w,h,color){
-				context.fillStyle = color;  
-				context.fillRect (x,y,w,h);  
+				//context.fillStyle = color;  
+				//context.fillRect (x,y,w,h);  
+				context.drawImage(document.getElementById('imageBücherwagen'),x,y,w,h);
+				
 				};
 			rect(PosWagen.x*size,PosWagen.y*size,size,size,"brown");
 		};
@@ -224,7 +231,7 @@ function Game() {
 				
 				if((e.which == 38 || e.which == 40 ) && canMoveWagen(PosWagen.x-1, PosWagen.y)) //Hoch und Runter: Links
 					PosWagen.x--;
-				if((e.which == 37 || e.which == 39 ) && canMoveWagen(PosWagen.x+1, PosWagen.y)) // Rechts und Links: Rechts
+				if((e.which == 37 || e.which == 39 ) && canMoveWagen(PosWagen.x+1, PosWagen.y)) //Links und Rechts: Rechts
 					PosWagen.x++;
 			});
 		
@@ -235,7 +242,7 @@ function Game() {
 	};
 	
 	function canMoveWagen (x,y){
-		if (currentMaze[y][x] ==3){return false;} // erkennt die Wand
+		if (currentMaze[y][x] ==1){return false;} // erkennt die Wand
 	
 		else {return true;}	
 	};	
