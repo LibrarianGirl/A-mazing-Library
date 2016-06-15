@@ -1,6 +1,5 @@
 To-DO:
 
-- Graphik 
 - Nachricht: Alle Level geschaft
 - Bewegung des Wagens überarbeiten
 
@@ -16,5 +15,6 @@ Erledigt:
 - Bücherwagen bewegen
 - Bücherwagen erkenn und nicht rauf laufen
 - Bücherwagen variable im 2. laden
+- Graphik 
 
 

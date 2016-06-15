@@ -71,9 +71,9 @@ function Game() {
 						  new Array(0,0,1,0,1,1,1,1,1,0,1,0,0,1,0),//3
 						  new Array(1,0,0,0,0,0,0,0,1,0,0,0,1,1,0),//4
 						  new Array(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0),//5
-						  new Array(1,0,0,0,1,0,0,0,0,1,1,1,0,0,0),//6
-						  new Array(0,0,1,0,1,0,1,1,0,0,1,0,0,1,1),//7
-						  new Array(0,1,1,0,1,0,0,0,1,0,0,0,1,1,0),//8
+						  new Array(1,0,0,0,1,0,0,0,0,0,1,1,0,0,0),//6
+						  new Array(0,0,1,0,1,0,1,1,1,0,1,0,0,1,1),//7
+						  new Array(0,1,1,0,1,0,0,0,0,0,0,0,1,1,0),//8
 						  new Array(0,0,1,0,1,1,1,0,1,1,1,1,1,0,0),//9
 						  new Array(1,0,1,0,0,0,0,0,1,1,0,0,0,0,1),//A
 						  new Array(1,0,1,1,1,1,1,1,1,0,0,1,0,1,1),//B
@@ -173,6 +173,9 @@ function Game() {
 		//Lädt den Knopf und Blockade im 3. Level
 		if (currentLevel == 2) {Knopf(); Blockade()};
 		
+		//Lädt den Bücherwagen im . Level
+		if (currentLevel == 3) {Bücherwagen()};
+		
 	};	
 	
 
@@ -194,8 +197,12 @@ function Game() {
 									
 		};
 	//	console.log(PosKnopf);
-	};	
-	
+		if (currentLevel == 3) {PosWagen = {
+									x: 8,
+									y: 7
+									};	
+		};	
+	};
 	
 //Zeichnet den Spieler	
 	function Player() { 		
