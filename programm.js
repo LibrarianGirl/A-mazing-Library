@@ -224,7 +224,7 @@ function Game() {
 //Zeichnet den Knopf
 	function Knopf() { 		
 		context.beginPath();
-		var half = size/4;
+		var half = size/3;
 		context.fillStyle = "red";
 		context.arc(PosKnopf.x*size+half, PosKnopf.y*size+half, half, 0, 2*Math.PI);
 		context.fill();	
@@ -234,9 +234,9 @@ function Game() {
 //Zeichnet die Blockade		
 	function Blockade() {
 			function rect(x,y,w,h,color){
-				context.fillStyle = color;  
-				context.fillRect (x,y,w,h);  
-				//context.drawImage(document.getElementById('imageWand5'),x,y,w,h);
+				//context.fillStyle = color;  
+				//context.fillRect (x,y,w,h);  
+				context.drawImage(document.getElementById('imageWand'),x,y,w,h);
 				
 				};
 			rect(PosBlockade.x*size,PosBlockade.y*size,size,size,"brown");
@@ -271,7 +271,11 @@ function Game() {
 		
 		else if (currentMaze[y][x] ==1){return false;} // erkennt die Wand
 		
-		else if ((x == PosWagen.x)&& (y==PosWagen.y)) {return false;} // erkennt den Wagen 
+		else if ((x == PosWagen.x)&& (y==PosWagen.y)) {return false;} // erkennt den Wagen
+
+		else if ((x == PosBlockade.x)&& (y==PosBlockade.y)) {return false;} // erkennt die Blockade
+		
+		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=0; PosBlockade.y=0;} // erkennt den Knopf und setzt Blockade auf 0
 		
 		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor
 		else {return true;}	
