@@ -224,10 +224,15 @@ function Game() {
 //Zeichnet den Knopf
 	function Knopf() { 		
 		context.beginPath();
-		var half = size/3;
-		context.fillStyle = "red";
-		context.arc(PosKnopf.x*size+half, PosKnopf.y*size+half, half, 0, 2*Math.PI);
-		context.fill();	
+		//var half = size/3;
+		//context.fillStyle = "red";
+		//context.arc(PosKnopf.x*size+half, PosKnopf.y*size+half, half, 0, 2*Math.PI);
+		//context.fill();	
+			function rect(x,y,w,h,color){ 
+				context.drawImage(document.getElementById('imageKnopf'),x,y,w,h);
+				};
+			rect(PosKnopf.x*size,PosKnopf.y*size,size,size);
+		
 		console.log(PosKnopf);
 	};
 
@@ -275,7 +280,7 @@ function Game() {
 
 		else if ((x == PosBlockade.x)&& (y==PosBlockade.y)) {return false;} // erkennt die Blockade
 		
-		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=0; PosBlockade.y=0;} // erkennt den Knopf und setzt Blockade auf 0
+		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=1; PosBlockade.y=0;} // erkennt den Knopf und setzt Blockade auf 0
 		
 		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor
 		else {return true;}	
