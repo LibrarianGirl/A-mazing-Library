@@ -223,16 +223,11 @@ function Game() {
 		
 //Zeichnet den Knopf
 	function Knopf() { 		
-		context.beginPath();
-		//var half = size/3;
-		//context.fillStyle = "red";
-		//context.arc(PosKnopf.x*size+half, PosKnopf.y*size+half, half, 0, 2*Math.PI);
-		//context.fill();	
-			function rect(x,y,w,h,color){ 
-				context.drawImage(document.getElementById('imageKnopf'),x,y,w,h);
-				};
-			rect(PosKnopf.x*size,PosKnopf.y*size,size,size);
-		
+		context.beginPath();	
+		function rect(x,y,w,h,color){ 
+			context.drawImage(document.getElementById('imageKnopf'),x,y,w,h);
+			};
+		rect(PosKnopf.x*size,PosKnopf.y*size,size,size);
 		console.log(PosKnopf);
 	};
 
