@@ -317,7 +317,7 @@ function Game() {
 
 		else if ((x == PosBlockade.x)&& (y==PosBlockade.y)) {return false;} // erkennt die Blockade
 		
-		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=15; PosBlockade.y=15;} // erkennt den Knopf und setzt Blockade aus dem Feld
+		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=15; PosBlockade.y=15; return true;} // erkennt den Knopf und setzt Blockade aus dem Feld
 		
 		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor und bereitet nächstes Level vor
 		
