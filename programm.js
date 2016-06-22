@@ -9,7 +9,7 @@ function Game() {
 	var MyMaze = new Array(												// Labyrinth Level 1
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,1,1,1,1,1,1,1,1,1,1,1,1,1),//0
-						  new Array(1,0,1,0,0,0,0,0,0,0,0,1,1,1,1),//1
+						  new Array(2,0,1,0,0,0,0,0,0,0,0,1,1,1,1),//1
 						  new Array(1,0,1,0,1,1,1,1,0,0,0,0,0,1,1),//2
 						  new Array(1,0,1,0,0,0,1,0,0,1,1,1,0,1,1),//3
 						  new Array(1,0,1,1,1,0,1,1,1,1,1,1,0,0,1),//4
@@ -29,7 +29,7 @@ function Game() {
 		var MyMaze2 = new Array( 											//Labyrinth Level 2
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,0,0,0,0,0,0,1,1,1,1,1,1,1),//0
-						  new Array(1,1,1,0,1,1,1,0,0,0,0,0,0,0,0),//1
+						  new Array(2,1,1,0,1,1,1,0,0,0,0,0,0,0,0),//1
 						  new Array(1,0,1,0,0,0,0,0,1,1,1,1,1,1,1),//2
 						  new Array(1,0,1,1,1,1,1,0,0,0,0,0,0,0,1),//3
 						  new Array(1,0,1,1,0,0,0,0,1,0,1,1,0,1,1),//4
@@ -47,7 +47,7 @@ function Game() {
 						  
 	var MyMaze3 = new Array( 											//Labyrinth Level 3
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
-						  new Array(0,1,1,1,1,1,0,0,0,1,0,0,0,1,1),//0
+						  new Array(0,2,1,1,1,1,0,0,0,1,0,0,0,1,1),//0
 						  new Array(0,0,0,0,0,0,0,1,0,0,0,1,0,1,1),//1
 						  new Array(0,1,1,1,1,1,0,1,1,1,1,1,0,1,1),//2
 						  new Array(0,1,0,0,0,1,0,1,1,0,0,0,0,1,1),//3
@@ -67,7 +67,7 @@ function Game() {
 		var MyMaze4 = new Array( 											//Labyrinth Level 4
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,0,0,1,1,1,0,0,0,1,1,1,1,1),//0
-						  new Array(1,1,1,0,0,0,0,0,1,0,1,1,0,0,0),//1
+						  new Array(2,1,1,0,0,0,0,0,1,0,1,1,0,0,0),//1
 						  new Array(0,0,1,1,1,1,1,1,1,0,1,0,0,1,0),//2
 						  new Array(1,0,0,0,0,0,0,0,0,0,0,0,1,1,0),//3
 						  new Array(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0),//4
@@ -319,7 +319,7 @@ function Game() {
 		
 		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=15; PosBlockade.y=15; return true;} // erkennt den Knopf und setzt Blockade aus dem Feld
 		
-		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor und bereitet nächstes Level vor
+		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0; PosWagen.x=0; PosWagen.y=0; ZusatzLaden();} //erkennt das Tor und bereitet nächstes Level vor
 		
 		else {return true;}	
 	};	
@@ -340,9 +340,11 @@ function Game() {
 	};
 	
 	function canMoveWagen (x,y){
-		if (currentMaze[y][x] ==1){return false;} // erkennt die Wand
-	
+		if (currentMaze[y][x] ==1){return false;}		// erkennt die Wand
+		
+		else if ((x == player.x)&& (y==player.y)) {return false;} // erkennt den Player
+		
 		else {return true;}	
 	};	
 		
-};//Game over
+};//Game over 
