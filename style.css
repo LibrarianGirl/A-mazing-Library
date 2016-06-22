@@ -1,2 +1,22 @@
- canvas{border:1px solid red}; 
+canvas{
+	border: 7px solid pink;
+	border-style: groove;
+	position: fixed;
+	top: 1em;
+	left: 450px;
+}
+body{
+	float: left;
+	background-color: pink;
+}
+h1{
+	margin-left: 50px;
+	font-family: monotype corsiva;
+	font-size: 48px;
+}
+p{
+	margin-left: 80px;
+	font-family: monotype corsiva;
+	font-size: 32px;
+}
  

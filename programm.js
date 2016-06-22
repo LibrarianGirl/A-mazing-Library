@@ -3,14 +3,14 @@ function Game() {
 
 	var Levels = new Array(); //die verschiedenen MyMaze in einer Variable, soll Level angeben Eintrag 0 = Level 1
 	
-	var currentMaze; //!!wird mit jedem neuladen wieder auf 0 gesetzt
+	var currentMaze; 
 	var currentLevel =0;
 	
 	var MyMaze = new Array(												// Labyrinth Level 1
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,1,1,1,1,1,1,1,1,1,1,1,1,1),//0
-						  new Array(2,0,1,0,0,0,0,0,0,0,0,1,1,1,1),//1
-						  new Array(1,0,1,0,1,1,1,0,0,0,0,0,0,1,1),//2
+						  new Array(1,0,1,0,0,0,0,0,0,0,0,1,1,1,1),//1
+						  new Array(1,0,1,0,1,1,1,1,0,0,0,0,0,1,1),//2
 						  new Array(1,0,1,0,0,0,1,0,0,1,1,1,0,1,1),//3
 						  new Array(1,0,1,1,1,0,1,1,1,1,1,1,0,0,1),//4
 						  new Array(1,0,1,1,0,0,1,1,0,1,1,1,0,1,1),//5
@@ -18,7 +18,7 @@ function Game() {
 						  new Array(1,0,0,0,0,0,0,1,0,1,1,1,1,1,0),//7
 						  new Array(1,1,1,1,1,0,1,1,0,0,0,0,0,1,0),//8
 						  new Array(0,0,0,0,0,0,1,1,0,1,1,1,0,1,0),//9
-						  new Array(0,0,1,1,1,0,0,1,0,1,0,0,0,1,0),//A
+						  new Array(0,1,1,1,1,0,0,1,0,1,0,0,0,1,0),//A
 						  new Array(0,0,0,0,0,0,1,0,0,1,0,1,1,1,1),//B
 						  new Array(1,1,1,1,1,1,1,1,0,1,0,0,0,0,1),//C
 						  new Array(1,1,1,1,1,1,1,1,0,0,0,0,0,1,1),//D
@@ -29,7 +29,7 @@ function Game() {
 		var MyMaze2 = new Array( 											//Labyrinth Level 2
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,0,0,0,0,0,0,1,1,1,1,1,1,1),//0
-						  new Array(1,2,1,0,1,1,1,0,0,0,0,0,0,0,0),//1
+						  new Array(1,1,1,0,1,1,1,0,0,0,0,0,0,0,0),//1
 						  new Array(1,0,1,0,0,0,0,0,1,1,1,1,1,1,1),//2
 						  new Array(1,0,1,1,1,1,1,0,0,0,0,0,0,0,1),//3
 						  new Array(1,0,1,1,0,0,0,0,1,0,1,1,0,1,1),//4
@@ -49,11 +49,11 @@ function Game() {
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,1,1,1,1,1,0,0,0,1,0,0,0,1,1),//0
 						  new Array(0,0,0,0,0,0,0,1,0,0,0,1,0,1,1),//1
-						  new Array(2,1,1,1,1,1,0,1,1,1,1,1,0,1,1),//2
+						  new Array(0,1,1,1,1,1,0,1,1,1,1,1,0,1,1),//2
 						  new Array(0,1,0,0,0,1,0,1,1,0,0,0,0,1,1),//3
 						  new Array(0,1,0,1,0,1,0,1,1,0,1,1,0,0,0),//4
 						  new Array(0,0,0,0,0,1,0,1,1,0,1,1,1,1,0),//5
-						  new Array(0,1,1,1,1,1,0,1,1,0,0,0,1,1,0),//6
+						  new Array(1,1,1,1,1,1,0,1,1,0,0,0,1,1,0),//6
 						  new Array(0,0,0,0,0,0,0,1,1,1,1,0,0,0,0),//7
 						  new Array(0,1,1,1,1,1,1,1,1,0,0,0,1,1,1),//8
 						  new Array(0,1,0,0,0,0,0,1,1,1,1,0,0,1,1),//9
@@ -67,9 +67,9 @@ function Game() {
 		var MyMaze4 = new Array( 											//Labyrinth Level 4
 								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
 						  new Array(0,0,0,0,1,1,1,0,0,0,1,1,1,1,1),//0
-						  new Array(2,1,1,0,0,0,0,0,1,0,1,1,0,0,0),//1
-						  new Array(0,0,1,0,1,1,1,1,1,0,1,0,0,1,0),//2
-						  new Array(1,0,0,0,0,0,0,0,1,0,0,0,1,1,0),//3
+						  new Array(1,1,1,0,0,0,0,0,1,0,1,1,0,0,0),//1
+						  new Array(0,0,1,1,1,1,1,1,1,0,1,0,0,1,0),//2
+						  new Array(1,0,0,0,0,0,0,0,0,0,0,0,1,1,0),//3
 						  new Array(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0),//4
 						  new Array(1,0,0,0,1,0,0,0,0,0,1,1,0,0,0),//5
 						  new Array(0,0,1,0,1,0,1,1,1,0,1,0,0,1,1),//6
@@ -81,14 +81,32 @@ function Game() {
 						  new Array(0,0,1,1,1,1,1,1,1,1,1,0,0,1,0),//C
 						  new Array(1,0,0,0,1,1,1,1,1,1,0,0,1,1,0),//D
 						  new Array(1,1,1,0,0,0,0,0,0,1,0,0,0,0,2)//E
-						  ); 									  
+						  ); 
+		var Ende = new Array ( 												//Ende
+								//  0,1,2,3,4,5,6,7,8,9,A,B,C,D,E
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//0
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//1
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//2
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//3
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//4
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//5
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//6
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//7
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//8
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//9
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//A
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//B
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//C
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),//D
+						  new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)//E
+							);
 						  
 	//MyMaze... wird in Levels geschrieben
 	Levels.push(MyMaze);
 	Levels.push(MyMaze2);
 	Levels.push(MyMaze3);
-	Levels.push(MyMaze4)
-	//console.log(currentLevel);
+	Levels.push(MyMaze4);
+	Levels.push(Ende);
 	
 //Definiert den Canvas
 	var canvas, 
@@ -96,12 +114,11 @@ function Game() {
 		bounce = -1;
 			
 		canvas = document.getElementById("stage")
-		context = canvas.getContext("2d"); //ermöglicht das Zeichnen von 4ecken
+		context = canvas.getContext("2d"); 
 		var w = canvas.width;
 		var h = canvas.height; 
-		//d:delimiter
 		var delimiter = 15;     // ermöglicht die Einteilung des Canvas in 15 Quadrate
-		var size = w/delimiter;
+		var size = w/delimiter; //legt die Größe der Quadrate fest
 		
 //Setzt den  Player auf Position 0	
 		var player = {
@@ -109,24 +126,28 @@ function Game() {
 			y: 0
 		};
 		
-//setzt den Bücherwagen auf Position
+//setzt den Bücherwagen auf Position 0
 		var PosWagen = {
 			x: 0,
 			y: 0
 		};
 		
-//setzt den Knopf auf Position
-			
+//setzt den Knopf auf Position 0
 		var PosKnopf = {
 			x: 0,
 			x: 0
 		};
 		
-	//setzt den Blockade auf Position
-			
+//setzt den Blockade auf Position 0
 		var PosBlockade = {
 			x: 0,
 			x: 0
+		};
+
+//setzt die Sprechblase auf Position 0	
+		var PosBubble ={
+			x:0,
+			y:0
 		};
 		
 // Eigentlicher Spielablauf
@@ -136,35 +157,33 @@ function Game() {
 	moveWagen();
 
 	
-
-	//+++++++++++++++++++++++++++++++++++++++++
-	//     	UTILITIEZ
-	//+++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++
+//     	UTILITIEZ
+//+++++++++++++++++++++++++++++++++++++++++
 
 //Zeichnet Labyrinth
 	function Maze() { 
 	currentMaze = Levels [currentLevel];
 		function BlackOrWhite(something){
-			//if(something == 2){return "red";}
 			 if (something == 0){return "white";};
 		};
 
 		for(var i = 0;i<15;i++){
 			for(var j = 0;j<15;j++){       
 				if (currentMaze[i][j] == 1)	{
-					context.drawImage(document.getElementById('imageWand'),size*j,size*i,size,size)	;}
+					context.drawImage(document.getElementById('imageWand'),size*j,size*i,size,size)	;} //Zeichnet Wand
 				else if (currentMaze[i][j] == 2)	{
-					context.drawImage(document.getElementById('imageTor'),size*j,size*i,size,size)	;}	 
+					context.drawImage(document.getElementById('imageTor'),size*j,size*i,size,size)	;} //Zeichnet Tor
 				else {
-				rect(size*j,size*i,size,size,BlackOrWhite((currentMaze[i][j])));
+				rect(size*j,size*i,size,size,BlackOrWhite((currentMaze[i][j]))); 					   //Zeichnet Weg
 				};
 			};
 		};
 		
-	function rect(x,y,w,h,color){
-		context.fillStyle = color;  
-		context.fillRect (x,y,w,h); 
-		
+		//Ermöglicht das Zeichnen eines Vierecks	
+		function rect(x,y,w,h,color){ 
+			context.fillStyle = color;  
+			context.fillRect (x,y,w,h); 
 		};			
 	
 		//Lädt den Bücherwagen im 2. Level
@@ -173,14 +192,17 @@ function Game() {
 		//Lädt den Knopf und Blockade im 3. Level
 		if (currentLevel == 2) {Knopf(); Blockade()};
 		
-		//Lädt den Bücherwagen im . Level
-		if (currentLevel == 3) {Bücherwagen()};
+		//Lädt den Zusatz im 4. Level
+		if (currentLevel == 3) {Bücherwagen(); Knopf(); Blockade()};
 		
+		//Lädt die Sprechblase am Ende
+		if (currentLevel == 4) {Bubble()};
 	};	
 	
 
-	//Zusatz laden
+//Setzt Zusatz auf Position
 	function ZusatzLaden (){
+		
 		if (currentLevel == 1) {PosWagen = {
 									x: 5,
 									y: 10
@@ -194,57 +216,78 @@ function Game() {
 									x: 12,
 									y: 10
 									};
-									
 		};
-	//	console.log(PosKnopf);
 		if (currentLevel == 3) {PosWagen = {
 									x: 8,
 									y: 7
-									};	
+								};
+								PosKnopf = {
+									x: 0,
+									y: 2
+									};
+								PosBlockade = {
+									x: 5,
+									y: 11
+									};								
 		};	
+		if (currentLevel == 4) {player ={
+									x: 6,
+									y: 7
+								};
+								PosBubble ={
+									x:7,
+									y:2
+								};
+									
+		};	
+							
 	};
+	
 	
 //Zeichnet den Spieler	
-	function Player() { 		
-		context.beginPath();
-		var half = size/2;
-		context.fillStyle = "blue";
-		context.arc(player.x*size+half, player.y*size+half, half, 0, 2*Math.PI);
-		context.fill();	
-	};
+	function Player() { 
+		function draw(x,y,w,h,color){ 
+				context.drawImage(document.getElementById('imagePlayer'),x,y,w,h);
+		};
+	draw(player.x*size,player.y*size,size,size);
+	};	
+		
 	
 //Zeichnet den Bücherwagen
-		function Bücherwagen() {
-			function rect(x,y,w,h,color){ 
+	function Bücherwagen() {
+		function draw(x,y,w,h,color){ 
 				context.drawImage(document.getElementById('imageBücherwagen'),x,y,w,h);
-				};
-			rect(PosWagen.x*size,PosWagen.y*size,size,size);
 		};
+	draw(PosWagen.x*size,PosWagen.y*size,size,size);
+	};
 		
 //Zeichnet den Knopf
-	function Knopf() { 		
-		context.beginPath();	
-		function rect(x,y,w,h,color){ 
+	function Knopf() { 			
+		function draw(x,y,w,h,color){ 
 			context.drawImage(document.getElementById('imageKnopf'),x,y,w,h);
-			};
-		rect(PosKnopf.x*size,PosKnopf.y*size,size,size);
-		console.log(PosKnopf);
+		};
+	draw(PosKnopf.x*size,PosKnopf.y*size,size,size);
 	};
 
 //Zeichnet die Blockade		
 	function Blockade() {
-			function rect(x,y,w,h,color){
-				//context.fillStyle = color;  
-				//context.fillRect (x,y,w,h);  
-				context.drawImage(document.getElementById('imageWand'),x,y,w,h);
-				
-				};
-			rect(PosBlockade.x*size,PosBlockade.y*size,size,size,"brown");
+		function draw(x,y,w,h,color){ 
+			context.drawImage(document.getElementById('imageWand'),x,y,w,h);
 		};
+	draw(PosBlockade.x*size,PosBlockade.y*size,size,size,"brown");
+	};
+		
+// Zeichnet die Sprechblase		
+	function Bubble () {
+		function draw(x,y,w,h,color){ 
+			context.drawImage(document.getElementById('imageEnde'),x,y,200,200);
+		};
+	draw(PosBubble.x*size,PosBubble.y*size,200,200,"brown");
+	};
+		
 	
 // Figur bewegen
 	function move(e){
-		
 		$(document).keyup(function(e){
 			if((e.which == 38) && canMove(player.x, player.y-1))//Hoch
 				player.y--;
@@ -258,11 +301,10 @@ function Game() {
 			Maze();
 			Player();
 			e.preventDefault();
-			//console.log(player);
 		});
 	};
 	
-//Kollisions erkennung mit Wand, Rand und Ende des Levels
+//Kollisions erkennung mit Wand, Rand und Tor
 	function canMove(x,y){
 		if (x<0){return false;} //erkennt den Rand
 		else if (y<0){return false;}
@@ -275,27 +317,23 @@ function Game() {
 
 		else if ((x == PosBlockade.x)&& (y==PosBlockade.y)) {return false;} // erkennt die Blockade
 		
-		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=1; PosBlockade.y=0;} // erkennt den Knopf und setzt Blockade auf 0
+		else if ((x == PosKnopf.x)&& (y==PosKnopf.y)) {PosBlockade.x=15; PosBlockade.y=15;} // erkennt den Knopf und setzt Blockade aus dem Feld
 		
-		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor
+		else if (currentMaze[y][x] ==2){alert('Gewonnen!');currentLevel++; player.x=0; player.y=0;ZusatzLaden();} //erkennt das Tor und bereitet nächstes Level vor
+		
 		else {return true;}	
-		//console.log (PosWagen);
-		
 	};	
 
-//Bücherwagen bewegen 
+//Bücherwagen bewegen und Kollisionserkennung 
     function moveWagen(e){
-	
 		$(document).keyup(function(e){
-		
-				
+	
 				if((e.which == 38 || e.which == 40 ) && canMoveWagen(PosWagen.x-1, PosWagen.y)) //Hoch und Runter: Links
 					PosWagen.x--;
 				if((e.which == 37 || e.which == 39 ) && canMoveWagen(PosWagen.x+1, PosWagen.y)) //Links und Rechts: Rechts
 					PosWagen.x++;
 			});
-		
-	
+			
 		Maze();
 		Player();
 		
@@ -306,15 +344,5 @@ function Game() {
 	
 		else {return true;}	
 	};	
-	
-	
-
-	
-};// ende Game
-
-
-
-
-
-
-
+		
+};//Game over
