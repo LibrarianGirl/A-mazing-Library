@@ -246,7 +246,7 @@ function Game() {
 	
 //Zeichnet den Spieler	
 	function Player() { 
-		function draw(x,y,w,h,color){ 
+		function draw(x,y,w,h){ 
 				context.drawImage(document.getElementById('imagePlayer'),x,y,w,h);
 		};
 	draw(player.x*size,player.y*size,size,size);
@@ -255,7 +255,7 @@ function Game() {
 	
 //Zeichnet den Bücherwagen
 	function Bücherwagen() {
-		function draw(x,y,w,h,color){ 
+		function draw(x,y,w,h){ 
 				context.drawImage(document.getElementById('imageBücherwagen'),x,y,w,h);
 		};
 	draw(PosWagen.x*size,PosWagen.y*size,size,size);
@@ -263,7 +263,7 @@ function Game() {
 		
 //Zeichnet den Knopf
 	function Knopf() { 			
-		function draw(x,y,w,h,color){ 
+		function draw(x,y,w,h){ 
 			context.drawImage(document.getElementById('imageKnopf'),x,y,w,h);
 		};
 	draw(PosKnopf.x*size,PosKnopf.y*size,size,size);
@@ -271,18 +271,18 @@ function Game() {
 
 //Zeichnet die Blockade		
 	function Blockade() {
-		function draw(x,y,w,h,color){ 
+		function draw(x,y,w,h){ 
 			context.drawImage(document.getElementById('imageWand'),x,y,w,h);
 		};
-	draw(PosBlockade.x*size,PosBlockade.y*size,size,size,"brown");
+	draw(PosBlockade.x*size,PosBlockade.y*size,size,size);
 	};
 		
 // Zeichnet die Sprechblase		
 	function Bubble () {
-		function draw(x,y,w,h,color){ 
+		function draw(x,y,w,h){ 
 			context.drawImage(document.getElementById('imageEnde'),x,y,200,200);
 		};
-	draw(PosBubble.x*size,PosBubble.y*size,200,200,"brown");
+	draw(PosBubble.x*size,PosBubble.y*size,200,200);
 	};
 		
 	
